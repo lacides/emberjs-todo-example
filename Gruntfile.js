@@ -1,20 +1,8 @@
+YAML = require('yamljs');
+
 module.exports = function(grunt) {
-  var files = {};
-  files.vendor = [
-    'vendor/bower/jquery/jquery.js',
-    'vendor/bower/handlebars/handlebars.js',
-    'vendor/bower/ember/ember.js',
-    'vendor/bower/ember-data/ember-data.js',
-    'vendor/bower/localstorage_adapter/localstorage_adapter.js'
-  ];
-
-  files.libs = ['app/js/application.js', 'app/js/router.js', 'app/js/**/*.js'];
-
-  files.css = ['app/css/style.css'];
-
-
-  files.all = files.vendor.concat(files.libs).concat(files.css);
-  files.all.push('app/pages/*.html');
+  var files = YAML.load('config.yml');
+  files.all = [].concat.apply([], files.all);
 
   // Project configuration.
   grunt.initConfig({
