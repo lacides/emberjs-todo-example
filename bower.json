@@ -1,0 +1,11 @@
+{
+  "name": "Todo",
+  "version": "0.0.1",
+  "dependencies": {
+    "ember-data": "1.0.0-beta.8",
+    "ember": "1.3.0",
+    "handlebars": "1.0.0",
+    "jquery": "1.10.2",
+    "localstorage_adapter": "git@github.com:rpflorence/ember-localstorage-adapter.git#21b25aaf02b250f2ec0c8dc36f7a902b0fc8d3cd"
+  }
+}
