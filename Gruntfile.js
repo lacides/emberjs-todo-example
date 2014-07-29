@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
   files.libs = ['app/js/application.js', 'app/js/router.js', 'app/js/**/*.js'];
 
-  files.css = ['app/css/style.css']
+  files.css = ['app/css/style.css'];
 
 
   files.all = files.vendor.concat(files.libs).concat(files.css);
@@ -37,10 +37,16 @@ module.exports = function(grunt) {
         ]
       }
     },
+    jshint: {
+      all: files.libs,
+      options: {
+        reporter: require('jshint-stylish')
+      }
+    },
     watch: {
       build: {
         files: files.all,
-        tasks: ['build']
+        tasks: ['build', 'jshint:all']
       }
     }
 
@@ -50,6 +56,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concat-sourcemap');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default task(s).
   grunt.registerTask('build', ['concat_sourcemap', 'copy']);
