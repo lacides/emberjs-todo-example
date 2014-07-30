@@ -11,8 +11,8 @@ module.exports = function(grunt) {
       options: {},
       target: {
         files: {
-          'generated/js/libs.js': files.vendor,
-          'generated/js/app.js': files.libs,
+          'generated/js/libs.js': files.libs,
+          'generated/js/app.js': files.app,
           'generated/css/style.css': files.css
         }
       }
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: files.libs,
+      all: files.app,
       options: {
         reporter: require('jshint-stylish')
       }

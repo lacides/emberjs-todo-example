@@ -1,17 +1,17 @@
-vendor: &vendor
+libs: &libs
 - vendor/bower/jquery/jquery.js
 - vendor/bower/handlebars/handlebars.js
 - vendor/bower/ember/ember.js
 - vendor/bower/ember-data/ember-data.js
 - vendor/bower/localstorage_adapter/localstorage_adapter.js
-libs: &libs
+app: &app
 - app/js/application.js
 - app/js/router.js
 - app/js/**/*.js
 css: &css
 - app/css/style.css
 all:
-- *vendor
 - *libs
+- *app
 - *css
 - app/pages/*.html
