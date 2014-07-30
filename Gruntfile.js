@@ -7,13 +7,19 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    sass: {
+      build: {
+        files: {
+          'generated/css/style.css': files.css
+        }
+      }
+    },
     concat_sourcemap: {
       options: {},
       target: {
         files: {
           'generated/js/libs.js': files.libs,
-          'generated/js/app.js': files.app,
-          'generated/css/style.css': files.css
+          'generated/js/app.js': files.app
         }
       }
     },
@@ -50,9 +56,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-execute');
 
   // Default task(s).
-  grunt.registerTask('build', ['concat_sourcemap', 'copy']);
+  grunt.registerTask('build', ['sass:build', 'concat_sourcemap', 'copy']);
   grunt.registerTask('run', ['build', 'execute:server']);
 };

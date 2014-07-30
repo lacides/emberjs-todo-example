@@ -8,8 +8,7 @@ app: &app
 - app/js/application.js
 - app/js/router.js
 - app/js/**/*.js
-css: &css
-- app/css/style.css
+css: &css app/css/style.scss
 all:
 - *libs
 - *app

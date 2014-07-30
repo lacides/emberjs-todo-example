@@ -3,3 +3,4 @@
 /node_modules/
 /vendor/bower
 /generated
+/.sass-cache/
