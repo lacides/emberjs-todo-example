@@ -4,7 +4,6 @@ module.exports = function(grunt) {
   var files = YAML.load('config.yml');
   files.all = [].concat.apply([], files.all);
 
-  // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     sass: {
@@ -51,7 +50,6 @@ module.exports = function(grunt) {
 
   });
 
-  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-concat-sourcemap');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -59,7 +57,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-execute');
 
-  // Default task(s).
   grunt.registerTask('build', ['sass:build', 'concat_sourcemap', 'copy']);
   grunt.registerTask('run', ['build', 'execute:server']);
 };
