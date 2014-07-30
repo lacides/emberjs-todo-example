@@ -36,6 +36,11 @@ module.exports = function(grunt) {
         files: files.all,
         tasks: ['build', 'jshint:all']
       }
+    },
+    execute: {
+      server: {
+          src: 'app.js'
+      }
     }
 
   });
@@ -45,7 +50,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-execute');
 
   // Default task(s).
   grunt.registerTask('build', ['concat_sourcemap', 'copy']);
+  grunt.registerTask('run', ['build', 'execute:server']);
 };
