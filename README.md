@@ -23,3 +23,7 @@ It will watch for changes on your source code to rebuild the project.
 
 ## Workflow
 Just run <code>grunt run</code> on a terminal window and <code>grunt watch:build</code> on another.
+
+## Deploying to heroku
+You need to use multibuild packs to deploy this application to heroku.
+Run <code>heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git</code> to enable it and then just <code>git push heroku master</code> as always.
