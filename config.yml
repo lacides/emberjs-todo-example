@@ -9,8 +9,11 @@ app: &app
 - app/js/router.js
 - app/js/**/*.js
 css: &css app/css/style.scss
+templates: &templates
+- app/templates/**/*.hbs
 all:
 - *libs
 - *app
 - *css
+- *templates
 - app/pages/*.html
