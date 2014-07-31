@@ -46,6 +46,16 @@ module.exports = function(grunt) {
       server: {
           src: 'app.js'
       }
+    },
+    emberTemplates: {
+      compile: {
+        options: {
+          templateBasePath: /app\/templates\//
+        },
+        files: {
+          'generated/js/templates.js': ['app/templates/**/*.hbs']
+        }
+      }
     }
 
   });
@@ -55,8 +65,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-ember-templates');
   grunt.loadNpmTasks('grunt-execute');
 
-  grunt.registerTask('build', ['sass:build', 'concat_sourcemap', 'copy']);
+  grunt.registerTask('build', ['emberTemplates', 'sass:build', 'concat_sourcemap', 'copy']);
   grunt.registerTask('run', ['build', 'execute:server']);
 };
